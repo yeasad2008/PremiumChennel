@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Redirecting...</title>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Get visit count from localStorage
+      let visitCount = parseInt(localStorage.getItem("visitCount") || "0");
+
+      // Increment visit count
+      visitCount += 1;
+      localStorage.setItem("visitCount", visitCount);
+
+      // Define URLs for redirection
+      const urls = [
+        "https://otieu.com/4/9464520",       // 1st visit
+        "https://otieu.com/4/9388407",       // 2nd visit
+        "https://t.me/premiumPaidChenne"     // 3rd and later visits
+      ];
+
+      // Determine redirect URL
+      const targetUrl = visitCount <= 2 ? urls[visitCount - 1] : urls[2];
+
+      // Redirect after 1 second
+      setTimeout(() => {
+        window.location.href = targetUrl;
+      }, 1000);
+    });
+  </script>
+</head>
+<body>
+  <h2>Redirecting, please wait...</h2>
+</body>
+</html>
